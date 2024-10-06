@@ -1,8 +1,7 @@
-streamlit
-langchain
-langchain-core
-langchain-ollama
-langchain-community
-python-dotenv
-langchain_chroma
-langchain_groq
+streamlit==1.24.0
+langchain==0.0.400
+langchain-groq==0.0.3
+langchain-chroma==0.0.3
+langchain-huggingface==0.0.3
+langchain-community==0.0.3
+python-dotenv==1.0.0
