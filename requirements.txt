@@ -1,0 +1,9 @@
+streamlit
+langchain>=3.0.0
+langchain-core>=0.4.0
+langchain-ollama
+langchain-community
+ollama
+python-dotenv
+langchain_faiss
+langchain_groq
