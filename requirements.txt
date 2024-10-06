@@ -1,6 +1,6 @@
 streamlit
-langchain>=3.0.0
-langchain-core>=0.4.0
+langchain
+langchain-core
 langchain-ollama
 langchain-community
 ollama
