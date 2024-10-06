@@ -5,3 +5,4 @@ langchain-chroma
 langchain-huggingface
 langchain-community
 python-dotenv
+protobuf
