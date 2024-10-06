@@ -13,10 +13,10 @@ import streamlit as st
 from langchain_chroma import Chroma
 from langchain_community.chat_message_histories import ChatMessageHistory
 from langchain_core.chat_history import BaseChatMessageHistory
-from langchain_huggingace import HuggingfaceEmbeddings
+from langchain_huggingface import HuggingfaceEmbeddings
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain.chains import create_retrieval_chain
-from langchain.chains.combine_document import create_stuff_documents_chain
+from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain.chains import create_history_aware_retriever
 
 # Initialize Huggingface embeddings
