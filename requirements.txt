@@ -3,7 +3,6 @@ langchain
 langchain-core
 langchain-ollama
 langchain-community
-ollama
 python-dotenv
-langchain_faiss
+langchain_chroma
 langchain_groq
