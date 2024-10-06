@@ -10,7 +10,7 @@ from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.output_parsers import StrOutputParser
 import streamlit as st
-from langchain_faiss import FAISS
+from langchain_chroma import Chroma
 from langchain_community.chat_message_histories import ChatMessageHistory
 from langchain_core.chat_history import BaseChatMessageHistory
 from langchain_huggingace import HuggingfaceEmbeddings
@@ -40,7 +40,7 @@ qna_prompt = ChatPromptTemplate.from_messages([
 ])
 
 # Initialize Chroma vectorstore
-vectorstore = FAISS.from_documents([], embeddings)
+vectorstore = Chroma.from_documents([], embeddings)
 retriever = vectorstore.as_retriever()
 
 # Global RAG chain variable
