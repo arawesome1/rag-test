@@ -81,9 +81,9 @@ store = {}
 
 # Retrieve session history
 def get_session_history(session_id: str) -> BaseChatMessageHistory:
-    if session_id not in store:
-        store[session_id] = ChatMessageHistory()
-    return store[session_id]
+    if session_id not in st.essiomn_state.store:
+        st.session_state.store[session_id] = ChatMessageHistory()
+    return st.session_state.store[session_id]
 
 # Initialize conversational RAG chain with message history
 def setup_conversational_rag_chain():
