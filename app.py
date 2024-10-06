@@ -64,7 +64,11 @@ def generate_response(question, engine, temperature, max_token, session_id):
         initialize_rag_chain(engine)
 
     chat_history = get_session_history(session_id)
-    answer = rag_chain.invoke({'question': question, 'chat_history': chat_history.messages})
+    try:
+        answer = rag_chain.invoke({'question': question, 'chat_history': chat_history.messages})
+    except Exception as e:
+        st.error("Error generating response: {}".format(str(e)))
+        return "An error occurred while generating the response."
 
     # Add user and assistant messages to the chat history
     chat_history.add_message("user", question)
@@ -113,8 +117,10 @@ if api_key:
     if user_input:
         response = generate_response(user_input, engine, temperature, max_token, session_id)
         st.write(response)
+        st.text_input("You: ", value="", key="new_input")  # Clear input field
     else:
         st.write("Please provide user input")
 else:
     st.warning("Please enter Groq API key")
+
 
