@@ -35,8 +35,11 @@ if api_key:
             with open(temppdf, "wb") as file:
                 file.write(uploaded_file.getvalue())
                 file_name=uploaded_file.name
-                loader= PyPDFLoader(temppdf)
-                docs=loader.load()
+                try:
+                    loader = PyPDFLoader(temppdf)
+                    docs = loader.load()
+                except Exception as e:
+                    st.error(f"Error loading PDF: {str(e)}")
                 document.extend(docs)
                 text_splitter=RecursiveCharacterTextSplitter(chunk_size=5000,chunk_overlap=200)
         splits=text_splitter.split_documents(document)
