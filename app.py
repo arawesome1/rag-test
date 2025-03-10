@@ -2,7 +2,7 @@ import streamlit as st
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
-from langchain.vectorstores import FAISS
+from langchain.vectorstores import chroma
 from langchain_groq import ChatGroq
 from langchain.chains import create_history_aware_retriever, create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
@@ -40,7 +40,7 @@ if api_key:
                 document.extend(docs)
                 text_splitter=RecursiveCharacterTextSplitter(chunk_size=5000,chunk_overlap=200)
         splits=text_splitter.split_documents(document)
-        vectorstore=FAISS.from_documents(documents = docs,embedding=embeddings)
+        vectorstore=chroma.from_documents(documents = docs,embedding=embeddings)
         retriever = vectorstore.as_retriever()
         contextualize_q_prompt=("""Given a chat history and latest user question which 
                                 might reference context in chat history, formulate a standalone question 
